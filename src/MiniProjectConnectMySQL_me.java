@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class MiniProjectConnectMySQL {
+public class MiniProjectConnectMySQL_me {
     public static void main(String[] args) {
         // [Process 1.] MySQL 접속 -> Connect to Database 
                             //(Host,Username 확인 - 그리고 default schema로 'world' 선택) 
@@ -16,7 +16,7 @@ public class MiniProjectConnectMySQL {
             String QUERY = "SELECT Code,Name, Population, Capital " + "FROM Country " // Caution! Must put space after "Population"
            
                                             + "WHERE 1 = 1 "  //Caution! Watch for + signs
-                                            + "AND Name like %an% "; 
+                                            + "AND Name like '%an%' "; 
                                             
             try {
                 Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -34,9 +34,10 @@ public class MiniProjectConnectMySQL {
                     // Line-by-line computer-based read를 가능하게 함 
                     while (rs.next()) { // 데이터의 양을 모름--> while, 알면 for문으로 접근
                         // Retrieve by column name
-                            System.out.print("ID: " + rs.getInt("ID"));
+                            System.out.print("CODE: " + rs.getString("CODE"));
                             System.out.print(", NAME: " + rs.getString("NAME"));
                             System.out.print(", POPULATION: " + rs.getInt("POPULATION"));
+                            System.out.print(", Capital: " + rs.getInt("Capital"));
                         
                     }
 
