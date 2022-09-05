@@ -15,7 +15,7 @@ public class TestApplication_city {
          ResultSet rs = stmt.executeQuery(QUERY); //집합 set의 결과를 rs에서 받는다
          //ResultSet rs = stmt_02.executeQuery(QUERY); //집합 set의 결과를 rs에서 받는다
          // Extract data from result set
-         while (rs.next()) {
+         while (rs.next()) { //data 개수를 모르기에 while, 알면 for
             // Retrieve by column name
             System.out.print("ID: " + rs.getString("id")); //VARCHAR(200)이었기에 
             System.out.print(", NAME: " + rs.getString("NAME"));
